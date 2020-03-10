@@ -7,8 +7,8 @@ import { SwitchesComponent } from './switches.component';
 import { TablesComponent } from './tables.component';
 import { TabsComponent } from './tabs.component';
 import { CarouselsComponent } from './carousels.component';
-import { PaginationsComponent } from './paginations.component';
-import { PopoversComponent } from './popovers.component';
+/* import { PaginationsComponent } from './paginations.component'; */
+/* import { PopoversComponent } from './popovers.component'; */
 import { ProgressComponent } from './progress.component';
 import { TooltipsComponent } from './tooltips.component';
 /* import { NavbarsComponent } from './navbars/navbars.component'; */
@@ -72,21 +72,21 @@ const routes: Routes = [
         data: {
           title: 'Collapses'
         }
-      }, */
+      },
       {
         path: 'paginations',
         component: PaginationsComponent,
         data: {
           title: 'Pagination'
         }
-      },
+      }, 
       {
         path: 'popovers',
         component: PopoversComponent,
         data: {
           title: 'Popover'
         }
-      },
+      }, */
       {
         path: 'progress',
         component: ProgressComponent,

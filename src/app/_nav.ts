@@ -2,50 +2,31 @@ import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
-    name: 'Dashboard',
+    name: 'Inicio',
     url: '/dashboard',
-    icon: 'icon-speedometer',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
+    icon: 'icon-home'
   },
   {
     title: true,
     name: 'Components'
   },
   {
-    name: 'Bases',
+    name: 'Ejemplos',
     url: '/base',
     icon: 'icon-puzzle',
     children: [
       {
-        name: 'Carruceles',
+        name: 'Banners',
         url: '/base/carousels',
         icon: 'icon-puzzle'
-      },/* 
+      },
       {
-        name: 'Collapses',
-        url: '/base/collapses',
-        icon: 'icon-puzzle'
-      }, */
-      {
-        name: 'Forms',
+        name: 'Formularios',
         url: '/base/forms',
         icon: 'icon-puzzle'
       },
       {
-        name: 'Pagination',
-        url: '/base/paginations',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Popovers',
-        url: '/base/popovers',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Progress',
+        name: 'Barra de Progreso',
         url: '/base/progress',
         icon: 'icon-puzzle'
       },
@@ -55,7 +36,7 @@ export const navItems: INavData[] = [
         icon: 'icon-puzzle'
       },
       {
-        name: 'Tables',
+        name: 'Tablas',
         url: '/base/tables',
         icon: 'icon-puzzle'
       },

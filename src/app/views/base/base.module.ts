@@ -27,12 +27,12 @@ import { CollapsesComponent } from './collapses.component'; */
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 // Pagination Component
-import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { PopoversComponent } from './popovers.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';/* 
+import { PopoversComponent } from './popovers.component'; */
 
 // Popover Component
-import { PopoverModule } from 'ngx-bootstrap/popover';
-import { PaginationsComponent } from './paginations.component';
+/* import { PopoverModule } from 'ngx-bootstrap/popover'; */
+/* import { PaginationsComponent } from './paginations.component'; */
 
 // Progress Component
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
@@ -58,7 +58,7 @@ import { BaseRoutingModule } from './base-routing.module';
     CarouselModule.forRoot(),
     /* CollapseModule.forRoot(), */
     PaginationModule.forRoot(),
-    PopoverModule.forRoot(),
+    /* PopoverModule.forRoot(), */
     ProgressbarModule.forRoot(),
     TooltipModule.forRoot()
   ],
@@ -70,8 +70,8 @@ import { BaseRoutingModule } from './base-routing.module';
     TabsComponent,
     CarouselsComponent,
     /* CollapsesComponent, */
-    PaginationsComponent,
-    PopoversComponent,
+    /* PaginationsComponent, */
+    /* PopoversComponent, */
     ProgressComponent,
     TooltipsComponent
     /* NavbarsComponent */
