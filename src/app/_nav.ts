@@ -12,52 +12,27 @@ export const navItems: INavData[] = [
   },
   {
     title: true,
-    name: 'Theme'
-  },
-  {
-    name: 'Colors',
-    url: '/theme/colors',
-    icon: 'icon-drop'
-  },
-  {
-    name: 'Typography',
-    url: '/theme/typography',
-    icon: 'icon-pencil'
-  },
-  {
-    title: true,
     name: 'Components'
   },
   {
-    name: 'Base',
+    name: 'Bases',
     url: '/base',
     icon: 'icon-puzzle',
     children: [
       {
-        name: 'Cards',
-        url: '/base/cards',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Carousels',
+        name: 'Carruceles',
         url: '/base/carousels',
         icon: 'icon-puzzle'
-      },
+      },/* 
       {
         name: 'Collapses',
         url: '/base/collapses',
         icon: 'icon-puzzle'
-      },
+      }, */
       {
         name: 'Forms',
         url: '/base/forms',
         icon: 'icon-puzzle'
-      },
-      {
-        name: 'Navbars',
-        url: '/base/navbars',
-        icon: 'icon-puzzle'
-
       },
       {
         name: 'Pagination',
@@ -223,7 +198,7 @@ export const navItems: INavData[] = [
       }
     ]
   },
-  {
+  /*{
     name: 'Disabled',
     url: '/dashboard',
     icon: 'icon-ban',
@@ -247,5 +222,5 @@ export const navItems: INavData[] = [
     icon: 'icon-layers',
     variant: 'danger',
     attributes: { target: '_blank', rel: 'noopener' }
-  }
+  } */
 ];

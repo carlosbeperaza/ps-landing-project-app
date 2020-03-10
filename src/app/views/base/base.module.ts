@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
-import { CardsComponent } from './cards.component';
+/* import { CardsComponent } from './cards.component'; */
 
 // Forms Component
 import { FormsComponent } from './forms.component';
@@ -20,8 +20,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CarouselsComponent } from './carousels.component';
 
 // Collapse Component
-import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { CollapsesComponent } from './collapses.component';
+/* import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { CollapsesComponent } from './collapses.component'; */
 
 // Dropdowns Component
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -43,7 +43,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TooltipsComponent } from './tooltips.component';
 
 // navbars
-import { NavbarsComponent } from './navbars/navbars.component';
+/* import { NavbarsComponent } from './navbars/navbars.component'; */
 
 // Components Routing
 import { BaseRoutingModule } from './base-routing.module';
@@ -56,25 +56,25 @@ import { BaseRoutingModule } from './base-routing.module';
     BsDropdownModule.forRoot(),
     TabsModule,
     CarouselModule.forRoot(),
-    CollapseModule.forRoot(),
+    /* CollapseModule.forRoot(), */
     PaginationModule.forRoot(),
     PopoverModule.forRoot(),
     ProgressbarModule.forRoot(),
     TooltipModule.forRoot()
   ],
   declarations: [
-    CardsComponent,
+    /* CardsComponent, */
     FormsComponent,
     SwitchesComponent,
     TablesComponent,
     TabsComponent,
     CarouselsComponent,
-    CollapsesComponent,
+    /* CollapsesComponent, */
     PaginationsComponent,
     PopoversComponent,
     ProgressComponent,
-    TooltipsComponent,
-    NavbarsComponent
+    TooltipsComponent
+    /* NavbarsComponent */
   ]
 })
 export class BaseModule { }
