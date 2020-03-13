@@ -2,7 +2,7 @@ import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
-    name: 'Inicio',
+    name: 'Home',
     url: '/dashboard',
     icon: 'icon-home'
   },
@@ -11,17 +11,17 @@ export const navItems: INavData[] = [
     name: 'Components'
   },
   {
-    name: 'Ejemplos',
+    name: 'Exampels',
     url: '/base',
     icon: 'icon-puzzle',
     children: [
       {
-        name: 'Formularios',
+        name: 'Forms',
         url: '/base/forms',
         icon: 'icon-puzzle'
       },
       {
-        name: 'Barra de Progreso',
+        name: 'Progress Bar',
         url: '/base/progress',
         icon: 'icon-puzzle'
       },
@@ -31,7 +31,7 @@ export const navItems: INavData[] = [
         icon: 'icon-puzzle'
       },
       {
-        name: 'Tablas',
+        name: 'Tables',
         url: '/base/tables',
         icon: 'icon-puzzle'
       },
@@ -48,29 +48,29 @@ export const navItems: INavData[] = [
     ]
   },
   {
-    name: 'Botones',
+    name: 'Buttons',
     url: '/buttons',
     icon: 'icon-cursor',
     children: [
       {
-        name: 'Botones Desplegables',
+        name: 'Dropdowns',
         url: '/buttons/dropdowns',
         icon: 'icon-cursor'
       }
     ]
   },
   {
-    name: 'Notificaciones',
+    name: 'Notifications',
     url: '/notifications',
     icon: 'icon-bell',
     children: [
       {
-        name: 'Alertas',
+        name: 'Alerts',
         url: '/notifications/alerts',
         icon: 'icon-bell'
       },
       {
-        name: 'Modales',
+        name: 'Modals',
         url: '/notifications/modals',
         icon: 'icon-bell'
       }
