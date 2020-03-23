@@ -33,7 +33,7 @@ export const routes: Routes = [
      {
       path: '',
       component: DefaultLayoutComponent,
-      children: content,
+       children: content,
        canActivate: [AuthGuard]
     },
     { path: '**', component: P404Component }
