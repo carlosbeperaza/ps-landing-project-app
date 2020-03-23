@@ -6,3 +6,16 @@
 export const environment = {
   production: false
 };
+
+export const PS_ENVIRONMENT = {
+  DEV: {
+    URL_LOGIN: 'http://54.91.167.86:8080/oauth/token',
+    URL: 'http://54.91.167.86:8080',
+    CREDENTIALS: 'Basic YW5ndWxhcmFwcDoxMjM0NQ==',
+  },
+  LOCAL: {
+    URL_LOGIN: 'http://localhost:8080/oauth/token',
+    URL: 'http://localhost:8080',
+    CREDENTIALS: 'Basic YW5ndWxhcmFwcDoxMjM0NQ==',
+  },
+};

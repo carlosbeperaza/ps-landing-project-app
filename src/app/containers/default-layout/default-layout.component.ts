@@ -2,6 +2,7 @@ import {Component } from '@angular/core';
 import { navItems } from '../../_nav';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2';
+import {AuthService} from '../../Services/auth/auth.service';
 
 
 @Component({
@@ -12,17 +13,20 @@ export class DefaultLayoutComponent {
   public sidebarMinimized = false;
   public navItems = navItems;
 
-  constructor(private router:Router){}
+  constructor(
+    public router: Router,
+    public authService: AuthService,
+    ) {}
 
 
   toggleMinimize(e) {
     this.sidebarMinimized = e;
   }
 
-  showModal() {
+  logOut() {
     Swal.fire({
-      title: 'Quieres cerrar Sesión?',
-      text: "You won't be able to revert this!",
+      title: '¿Seguro que te vas?',
+      text: 'Estás a punto de abandonar tu sesión.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -31,12 +35,8 @@ export class DefaultLayoutComponent {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.value) {
-        Swal.fire(
-          'Cerraste Sesión!',
-          'Saliendo.',
-          'success'
-          )
-          this.router.navigateByUrl('/');
+        this.authService.removeAuth();
+        this.router.navigateByUrl('/');
       }
     });
     }

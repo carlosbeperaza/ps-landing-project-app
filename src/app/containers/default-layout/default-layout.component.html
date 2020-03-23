@@ -1,10 +1,11 @@
 <app-header
   [navbarBrandRouterLink]="['/dashboard']"
   [fixed]="true"
-  [navbarBrandFull]="{src: 'assets/img/brand/cropped-cropped-logo1.jpg', width: 100, height: 45, alt: 'CoreUI Logo'}"
-  [navbarBrandMinimized]="{src: '', width: 30, height: 30, alt: ''}"
+  [navbarBrandFull]="{src: 'assets/img/brand/cropped-cropped-logo1.jpg', width: 110, height: 45, alt: 'Punto Singular'}"
+  [navbarBrandMinimized]="{src: '', width: 40, height: 30, alt: ''}"
   [sidebarToggler]="'lg'"
-  [asideMenuToggler]="'lg'">
+  [asideMenuToggler]="false"
+  [mobileAsideMenuToggler]="false">
   <!-- <ul class="nav navbar-nav d-md-down-none">
     <li class="nav-item px-3">
       <a class="nav-link" href="#">Home</a>
@@ -31,19 +32,19 @@
         <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com"/>
       </a>
       <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
-        <div class="dropdown-header text-center"><strong>Account</strong></div>
-        <a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> Updates<span class="badge badge-info">42</span></a>
-        <a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> Messages<span class="badge badge-success">42</span></a>
-        <a class="dropdown-item" href="#"><i class="fa fa-tasks"></i> Tasks<span class="badge badge-danger">42</span></a>
-        <a class="dropdown-item" href="#"><i class="fa fa-comments"></i> Comment<span class="badge badge-warning">42</span></a>
+<!--        <div class="dropdown-header text-center"><strong>Account</strong></div>-->
+<!--        <a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> Updates<span class="badge badge-info">42</span></a>-->
+<!--        <a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> Messages<span class="badge badge-success">42</span></a>-->
+<!--        <a class="dropdown-item" href="#"><i class="fa fa-tasks"></i> Tasks<span class="badge badge-danger">42</span></a>-->
+<!--        <a class="dropdown-item" href="#"><i class="fa fa-comments"></i> Comment<span class="badge badge-warning">42</span></a>-->
         <div class="dropdown-header text-center"><strong>Settings</strong></div>
         <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
-        <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Setting</a>
-        <a class="dropdown-item" href="#"><i class="fa fa-usd"></i> Payments<span class="badge badge-dark">42</span></a>
-        <a class="dropdown-item" href="#"><i class="fa fa-file"></i> Projects<span class="badge badge-primary">42</span></a>
+<!--        <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Setting</a>-->
+<!--        <a class="dropdown-item" href="#"><i class="fa fa-usd"></i> Payments<span class="badge badge-dark">42</span></a>-->
+<!--        <a class="dropdown-item" href="#"><i class="fa fa-file"></i> Projects<span class="badge badge-primary">42</span></a>-->
         <div class="divider"></div>
-        <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock account</a>
-        <a class="dropdown-item"  (click)="showModal()"><i class="fa fa-lock"></i> Logout</a>
+<!--        <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock account</a>-->
+        <a class="dropdown-item"  (click)="logOut()"><i class="fa fa-lock"></i> Logout</a>
       </div>
     </li>
   </ul>
@@ -56,11 +57,11 @@
   <!-- Main content -->
   <main class="main">
     <!-- Breadcrumb -->
-    
+
     <!-- breaking change 'cui-breadcrumb' -->
     <cui-breadcrumb>
       <!-- Breadcrumb Menu-->
-      
+
     </cui-breadcrumb>
     <!-- deprecation warning for 'app-breadcrumb' -->
     <!--<ol class="breadcrumb">-->
@@ -331,6 +332,6 @@
   </app-aside> -->
 </div>
 <app-footer>
-  <span><a href="https://coreui.io">CoreUI</a> &copy; 2018 creativeLabs.</span>
-  <span class="ml-auto">Powered by <a href="https://coreui.io/angular">CoreUI for Angular</a></span>
+<!--  <span><a href="https://coreui.io">CoreUI</a> &copy; 2018 creativeLabs.</span>-->
+<!--  <span class="ml-auto">Powered by <a href="https://coreui.io/angular">CoreUI for Angular</a></span>-->
 </app-footer>
