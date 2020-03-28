@@ -30,6 +30,10 @@ export const routes: Routes = [
       path: 'signin',
       loadChildren: () => import('./auth/register/register.module').then(m => m.RegisterModule),
     },
+    /*{
+      path: 'register',
+      loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterModule),
+    },*/
      {
       path: '',
       component: DefaultLayoutComponent,
