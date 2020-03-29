@@ -3,6 +3,7 @@ import { navItems } from '../../_nav';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2';
 import {AuthService} from '../../Services/auth/auth.service';
+import {HttpService} from '../../Services/http/http.service';
 
 
 @Component({
@@ -11,12 +12,18 @@ import {AuthService} from '../../Services/auth/auth.service';
 })
 export class DefaultLayoutComponent {
   public sidebarMinimized = false;
-  public navItems = navItems;
+  public navItems = [];
 
   constructor(
     public router: Router,
     public authService: AuthService,
-    ) {}
+    public http: HttpService,
+    ) {
+    this.http.getSidebar(this.authService.getUser().id)
+      .then((res: any) => {
+        this.navItems = res.data;
+      });
+  }
 
 
   toggleMinimize(e) {
