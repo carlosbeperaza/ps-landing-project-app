@@ -9,11 +9,12 @@ import { AppComponent } from './app.component';
 
 // Import containers
 import { DefaultLayoutComponent } from './containers';
-
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+//import { ForgotComponentComponent } from './auth/forgot-password/forgot-component/forgot-component.component';
+
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -38,6 +39,9 @@ import {ToastrModule} from 'ngx-toastr';
 import {AuthService} from './Services/auth/auth.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InterceptorService} from './interceptors/auth.interceptor';
+
+
+
 
 @NgModule({
   imports: [
@@ -65,7 +69,8 @@ import {InterceptorService} from './interceptors/auth.interceptor';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    //ForgotComponentComponent
   ],
   providers: [
     AuthService,
