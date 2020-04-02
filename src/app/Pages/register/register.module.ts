@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import {RouterModule, Routes} from '@angular/router';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import {FormsModule} from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -12,19 +13,25 @@ const routes: Routes = [
         path: 'register',
         component:  RegisterComponent,
         data: {
-          title: 'Register',
-          breadcrumb: 'Dashboard'
-        }
-      }
+          title: 'Register'
+        },     
+      },
+      {
+        path: '',
+        redirectTo: 'register/register',
+        pathMatch: 'full',
+      },
     ],
   },
 ];
 
 @NgModule({
   declarations: [RegisterComponent],
+  exports: [],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
+    FormsModule,
     NgxSpinnerModule
   ]
 })
