@@ -1,11 +1,9 @@
 export interface Register {
     name: string;
-    lastName: string;
+  lastname: string;
     email: string;
     password: string;
     username: string;
     status: boolean;
-    registrationDate: null;
-    updateDate: null;
-    role: number[];
+  roles: number[];
 }

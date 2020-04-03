@@ -51,8 +51,8 @@
                                 <select ngModel name="role" class="form-control" id="role" required="required">
                                     <option value="" selected>select a role...</option>
                                     <option value="1">Admin</option>
-                                    <option value=[2]>Alumno</option>
-                                    <option value="[3]">Trabajador</option>
+                                    <option value=2>Alumno</option>
+                                    <option value="3">Trabajador</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-sm btn-success " [disabled]="!registerForm.valid" (click)="register(registerForm)"><i class="fa fa-dot-circle-o"></i> Create Account</button>

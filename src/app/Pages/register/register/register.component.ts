@@ -28,29 +28,23 @@ export class RegisterComponent  {
 
       const user: Register = {
         name: form.value.firstName,
-        lastName: form.value.lastName,
+        lastname: form.value.lastName,
         email: form.value.email,
         password: form.value.password,
         username: form.value.username,
         status: false,
-        registrationDate: null,
-        updateDate: null,
-        role: []
-        
-      };
+        roles: []
+
+    };
           this.http.create('user', user)
             .then((res: any) => {
-              localStorage.setItem('user', JSON.stringify(res.data));
-              this.router.navigateByUrl('/dashboard/home');
-            })
-            .catch(() => {
-              this.authService.brokenApp();
+              // localStorage.setItem('user', JSON.stringify(res.data));
+              // this.router.navigateByUrl('/dashboard/home');
             })
             .finally(() => {
             this.loader.hide();
           });
-       
-      
+
     }
   }
 }
