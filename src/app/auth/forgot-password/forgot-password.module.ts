@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ForgotComponentComponent } from './forgot-component/forgot-component.component';
 import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -11,7 +12,7 @@ const routes: Routes = [
         path: 'forgotPassword',
         component: ForgotComponentComponent,
         data: {
-          title: 'Recuest Password',
+          title: 'Request Password',
         }
       },
       {
@@ -28,6 +29,8 @@ const routes: Routes = [
   exports: [],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule],
+    CommonModule,
+    FormsModule,
+  ],
 })
 export class ForgotPasswordModule { }
