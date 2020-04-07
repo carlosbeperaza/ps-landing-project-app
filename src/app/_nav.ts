@@ -6,6 +6,22 @@ export const navItems: INavData[] = [
     url: '/dashboard/home',
     icon: 'icon-home'
   },
+  {
+    title: true,
+    name: 'Components'
+  },
+  {
+    name: 'User',
+    url: '/register',
+    icon: 'icon-user',
+    children: [
+      {
+        name: 'Register',
+        url: '/register/register',
+        icon: 'icon-user'
+      }
+    ]
+  }
   /*{
     title: true,
     name: 'Components'

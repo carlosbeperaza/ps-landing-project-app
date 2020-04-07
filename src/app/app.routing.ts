@@ -38,6 +38,10 @@ export const routes: Routes = [
       path: 'change',
       loadChildren: () => import('./auth/new-password/new-password.module').then(m => m.NewPasswordModule),
     },
+    /*{
+      path: 'register',
+      loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterModule),
+    },*/
      {
       path: '',
       component: DefaultLayoutComponent,

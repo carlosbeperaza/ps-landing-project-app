@@ -5,6 +5,10 @@ export const content: Routes = [
     path: 'dashboard',
     loadChildren: () => import('../../pages/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
+  {
+    path: 'register',
+    loadChildren: () => import('../../pages/register/register.module').then(m => m.RegisterModule),
+  },
   /*{
     path: 'base',
     loadChildren: () => import('../../views/base/base.module').then(m => m.BaseModule)
