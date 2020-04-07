@@ -1,4 +1,4 @@
-export interface RecoverPassword {
+export interface TargetUser {
     username: string;
     email: string;
   }

@@ -4,8 +4,7 @@ import { HttpService } from '../../../Services/http/http.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { InterceptorService } from '../../../interceptors/auth.interceptor';
-import {HttpHeaders} from "@angular/common/http";
+import { TargetUser } from '../../../models/targetUser';
 
 @Component({
   selector: 'app-forgot-component',
@@ -18,24 +17,20 @@ export class ForgotComponentComponent {
     public router: Router,
     public toaster: ToastrService,
     public http: HttpService,
-    private _interceptor: InterceptorService,
   ) { }
 
   forgot(form: NgForm) {
+     const targetUser: TargetUser = {
+       username: btoa(form.value.username),
+       email: btoa(form.value.email)
+     }
     if (form.valid){
-      // Enviar los headers de 'email' y 'username'
-      this._interceptor.setAdditionalHeaders(new HttpHeaders({
-        'username': btoa(form.value.username),
-        'email': btoa(form.value.email)
-      }));
-      this.http.forgot()
-        .then((res: any) => {
-          localStorage.setItem('forgot', JSON.stringify(res.data));
-          this.router.navigateByUrl('/dashboard/home');
-        })
-        .catch(() => {
-          this.authService.brokenApp();
-        });
+      this.http.forgot(targetUser).then((res: any) => {
+        localStorage.setItem('forgot', JSON.stringify(res.data));
+        this.router.navigateByUrl('/dashboard/home');
+      }).catch(() => {
+        this.authService.brokenApp();
+      });
     }
   }
 }

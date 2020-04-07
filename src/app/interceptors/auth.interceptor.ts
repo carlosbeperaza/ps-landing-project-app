@@ -21,8 +21,7 @@ export class InterceptorService implements HttpInterceptor {
     public toaster: ToastrService,
     public authService: AuthService,
     public router: Router,
-    private additionalHeaders: HttpHeaders = new HttpHeaders(),
-    ) {}
+  ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const httpOptions = {
@@ -34,14 +33,6 @@ export class InterceptorService implements HttpInterceptor {
 
     if (this.authService.isAuthenticated()) {
       httpOptions.headers = httpOptions.headers.set('Authorization', 'Bearer ' + this.authService.getToken());
-    }
-    // Agregar los nuevos headers en caso de existir
-    if ((this.additionalHeaders.keys()).length > 0) {
-      this.additionalHeaders.keys().forEach(key => {
-        console.log(`${key} : ${this.additionalHeaders.get(key)}`);
-        httpOptions.headers.set(key, this.additionalHeaders.get(key));
-      });
-      this.additionalHeaders = new HttpHeaders();
     }
 
     const headers = httpOptions.headers;
@@ -84,10 +75,5 @@ export class InterceptorService implements HttpInterceptor {
         return throwError(err);
       })
     );
-  }
-
-  // Método que recibe nuevos headers
-  setAdditionalHeaders (headers: HttpHeaders) {
-    this.additionalHeaders = headers;
   }
 }
