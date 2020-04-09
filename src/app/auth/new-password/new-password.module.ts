@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: 'newPassword',
+        path: 'newPassword/:userId/:formerPass',
         component: NewPasswordComponent,
         data: {
           title: 'Change Password',

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PS_ENVIRONMENT } from '../../../environments/environment';
+import {TargetUser} from "../../models/targetUser";
 // import { imageBase64 } from './image';
 // import { TreeviewItem } from 'ngx-treeview';
 
@@ -23,5 +24,13 @@ export class HttpService {
 
   delete = async (resource: string, id: any) => await this.http.delete(`${this.URL_API}/${resource}/${id}`).toPromise();
 
-  forgot = async (object: any) => await this.http.post(`${this.URL_API}/user/forgot-password`, object).toPromise();
+  forgot = async (targetUser: TargetUser) => await this.http.post(
+    `${this.URL_API}/user/forgot-password`,
+    targetUser
+  ).toPromise();
+
+  resetPass = async (id: string, newPass: string, formerPass: string) => await this.http.put(
+    `${this.URL_API}/user/password-reset/${id}/${newPass}/${formerPass}`,
+    null
+  ).toPromise();
 }

@@ -1,4 +1,6 @@
 export interface TargetUser {
-    username: string;
-    email: string;
-  }
+  id?: number;
+  username?: string;
+  password?: string;
+  email?: string;
+}
