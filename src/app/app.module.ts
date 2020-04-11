@@ -39,6 +39,7 @@ import {AuthService} from './Services/auth/auth.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InterceptorService} from './interceptors/auth.interceptor';
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -65,7 +66,7 @@ import {InterceptorService} from './interceptors/auth.interceptor';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   providers: [
     AuthService,

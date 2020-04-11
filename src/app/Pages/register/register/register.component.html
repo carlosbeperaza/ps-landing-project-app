@@ -12,19 +12,22 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user-following"></i></span>
                                 </div>
-                                <input ngModel name="firstName" type="text" class="form-control" placeholder="First Name" autocomplete="First Name" required>
+                                <input matInput ngModel name="firstName" type="text" class="form-control" placeholder="First Name" autocomplete="First Name" minlength="7" maxlength="30" pattern="[A-Za-z0-9]+" required>
+
+
+
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user-following"></i></span>
                                 </div>
-                                <input ngModel name="lastName" type="text" class="form-control" placeholder="Last Name" autocomplete="Last Name" required>
+                                <input ngModel name="lastName" type="text" class="form-control" placeholder="Last Name" autocomplete="Last Name" minlength="7" maxlength="30" pattern="[A-Za-z0-9]+" required>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input ngModel name="username" type="text" class="form-control" placeholder="Username" autocomplete="username" required>
+                                <input ngModel name="username" type="text" class="form-control" placeholder="Username" autocomplete="username" minlength="5" maxlength="30" pattern="[A-Za-z0-9]+" required>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -36,13 +39,13 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
                                 </div>
-                                <input ngModel name="password" type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
+                                <input ngModel name="password" type="password" class="form-control" placeholder="Password" autocomplete="new-password" minlength="5" required>
                             </div>
                             <div class="input-group mb-4">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
                                 </div>
-                                <input name="repetPassword" type="password" class="form-control" placeholder="Repeat password" autocomplete="Repeat password" required>
+                                <input ngModel name="repetPassword" type="password" class="form-control" placeholder="Repeat password" autocomplete="Repeat password" minlength="5" required>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -55,7 +58,7 @@
                                     <option value="3">Trabajador</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-sm btn-success " [disabled]="!registerForm.valid" (click)="register(registerForm)"><i class="fa fa-dot-circle-o"></i> Create Account</button>
+                            <button type="submit" class="btn btn-sm btn-success " [disabled]="!registerForm.valid || !validacionPassword(registerForm)" (click)="register(registerForm)"><i class="fa fa-dot-circle-o"></i> Create Account</button>
                             <button type="reset" class="btn btn-sm btn-danger "><i class="fa fa-ban"></i> Reset Form</button>
                         </form>
                     </div>
