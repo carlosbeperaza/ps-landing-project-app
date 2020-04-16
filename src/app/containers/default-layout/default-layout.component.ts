@@ -1,5 +1,5 @@
 import {Component } from '@angular/core';
-import { navItems } from '../../_nav';
+import { navItems } from '../../Pages/registerModule/nav_module';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2';
 import {AuthService} from '../../Services/auth/auth.service';

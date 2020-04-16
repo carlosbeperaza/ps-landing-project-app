@@ -1,7 +1,7 @@
 import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
- 
+ /*
   {
     name: 'Module',
     url: '/registerModule',
@@ -14,7 +14,7 @@ export const navItems: INavData[] = [
       }
     ]
   }
-  /*
+  
   {
     name: 'Exampels',
     url: '/base',
