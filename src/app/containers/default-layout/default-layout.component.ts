@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 import {AuthService} from '../../Services/auth/auth.service';
 import {HttpService} from '../../Services/http/http.service';
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './default-layout.component.html'
@@ -13,6 +12,7 @@ import {HttpService} from '../../Services/http/http.service';
 export class DefaultLayoutComponent {
   public sidebarMinimized = false;
   public navItems = [];
+  public prueba = navItems;
 
   constructor(
     public router: Router,
@@ -21,7 +21,8 @@ export class DefaultLayoutComponent {
     ) {
     this.http.getSidebar(this.authService.getUser().id)
       .then((res: any) => {
-        this.navItems = res.data;
+       this.navItems =  res.data;
+        
       });
   }
 

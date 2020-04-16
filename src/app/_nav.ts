@@ -1,15 +1,20 @@
 import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
+ 
   {
-    name: 'Dashboard',
-    url: '/dashboard/home',
-    icon: 'icon-home'
-  },
-  /*{
-    title: true,
-    name: 'Components'
-  },
+    name: 'Module',
+    url: '/registerModule',
+    icon: 'icon-user',
+    children: [
+      {
+        name: 'RegisterModule',
+        url: '/registerModule/registerModule',
+        icon: 'icon-user'
+      }
+    ]
+  }
+  /*
   {
     name: 'Exampels',
     url: '/base',
@@ -78,8 +83,8 @@ export const navItems: INavData[] = [
   },
   {
     divider: true
-  },*/
-  /*{
+  },
+  {
     title: true,
     name: 'Extras',
   },
