@@ -9,6 +9,10 @@ export const content: Routes = [
     path: 'register',
     loadChildren: () => import('../../pages/register/register.module').then(m => m.RegisterModule),
   },
+  {
+    path: 'userlist',
+    loadChildren: () => import('../../pages/userlist/userlist.module').then(m => m.UserlistModule),
+  },
   /*{
     path: 'base',
     loadChildren: () => import('../../views/base/base.module').then(m => m.BaseModule)

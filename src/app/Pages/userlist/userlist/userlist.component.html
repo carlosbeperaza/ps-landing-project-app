@@ -1,0 +1,35 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Users</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">User list</h5>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Registration Date</th>
+                    <th scope="col">Update Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userlist">
+                    <td>{{user?.id}}</td>
+                    <td>{{user?.name}}</td>
+                    <td>{{user?.lastname}}</td>
+                    <td>{{user?.email}}</td>
+                    <td>{{user?.password}}</td>
+                    <td>{{user?.registration_date}}</td>
+                    <td>{{user?.last_update_date}}</td>
+                    <td>{{user?.status}}</td>
+                    <td>{{user?.username}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

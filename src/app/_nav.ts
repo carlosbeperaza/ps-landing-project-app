@@ -19,6 +19,11 @@ export const navItems: INavData[] = [
         name: 'Register',
         url: '/register/register',
         icon: 'icon-user'
+      },
+      {
+        name: 'Userlist',
+        url: '/userlist/userlist',
+        icon: 'icon-user'
       }
     ]
   }
