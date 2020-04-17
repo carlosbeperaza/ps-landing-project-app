@@ -24,13 +24,7 @@ export class HttpService {
 
   delete = async (resource: string, id: any) => await this.http.delete(`${this.URL_API}/${resource}/${id}`).toPromise();
 
-  forgot = async (targetUser: TargetUser) => await this.http.post(
-    `${this.URL_API}/user/forgot-password`,
-    targetUser
-  ).toPromise();
+  forgot = async (targetUser: TargetUser) => await this.http.post(`${this.URL_API}/user/forgot-password`, targetUser).toPromise();
 
-  resetPass = async (id: string, newPass: string, formerPass: string) => await this.http.put(
-    `${this.URL_API}/user/password-reset/${id}/${newPass}/${formerPass}`,
-    null
-  ).toPromise();
+  resetPass = async (id: string, newPass: string, formerPass: string) => await this.http.put(`${this.URL_API}/user/password-reset/${id}/${newPass}/${formerPass}`, null).toPromise();
 }

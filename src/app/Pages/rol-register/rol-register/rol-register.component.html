@@ -1,0 +1,38 @@
+<div class="animated fadeIn">
+    <main class="form-group col-lg-12">
+
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                <div class="card mx-4">
+                    <div class="card-body p-4 text-c">
+                        <form ngNativeValidate #rolRegisterForm="ngForm">
+                            <h1>Create</h1>
+                            <p class="text-muted">Enter a new Rol</p>
+                            <div class="input-group mb-3 ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-people"></i></span>
+                                </div>
+                                <input ngModel name="name" type="text" class="form-control" placeholder="Name" autocomplete="Name" required>
+                            </div>
+                            <div class="input-group mb-3 ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-speech"></i></span>
+                                </div>
+                                <input ngModel name="description" type="text" class="form-control" placeholder="Description" autocomplete="Description" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect2">Moduls select</label>
+                                <select multiple class="form-control" id="exampleFormControlSelect2">
+                                  <option>test</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-success "><i class="fa fa-dot-circle-o"></i> Create Rol</button>
+                            <button type="reset" class="btn btn-sm btn-danger "><i class="fa fa-ban"></i> Reset Form</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>

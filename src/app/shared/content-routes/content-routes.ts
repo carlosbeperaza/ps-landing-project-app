@@ -9,10 +9,19 @@ export const content: Routes = [
     path: 'register',
     loadChildren: () => import('../../pages/register/register.module').then(m => m.RegisterModule),
   },
-  /*{
-    path: 'base',
-    loadChildren: () => import('../../views/base/base.module').then(m => m.BaseModule)
+  {
+    path: 'roles-register',
+    loadChildren: () => import('../../pages/rol-register/rol-register.module').then(m => m.RolRegisterModule),
   },
+  {
+    path: 'roles-list',
+    loadChildren: () => import('../../pages/rol-list/rol-list.module').then(m => m.RolListModule)
+  },
+  {
+    path: 'roles-edit',
+    loadChildren: () => import('../../pages/rol-edit/rol-edit.module').then(m => m.RolEditModule)
+  }
+  /*
   {
     path: 'buttons',
     loadChildren: () => import('../../views/buttons/buttons.module').then(m => m.ButtonsModule)

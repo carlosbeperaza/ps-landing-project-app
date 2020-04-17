@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
-import { ToastrService } from "ngx-toastr";
-import { HttpService } from "../../../Services/http/http.service";
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { HttpService } from '../../../Services/http/http.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -22,11 +22,11 @@ export class NewPasswordComponent {
     this._activatedRoute.params.subscribe(params => {
       this.userId = atob(params['userId']);
       this.formerPass = atob(params['formerPass']);
-    })
+    });
   }
 
   resetPass(pass: string, confirmPass: string) {
-    if(pass === confirmPass) {
+    if (pass === confirmPass) {
       this._http.resetPass(btoa(this.userId), btoa(pass), btoa(this.formerPass)).then((res: any) => {
         /* this._toaster.info(
           res['message'],
@@ -41,7 +41,7 @@ export class NewPasswordComponent {
           title: 'Listo',
           text: 'Contraseña restablecida, ya puede ingresar'
         });
-        this._router.navigateByUrl('/dashboard/home').then(r => {});
+        this._router.navigateByUrl('/auth/login').then(r => {});
       });
     } else {
       /* this._toaster.warning(

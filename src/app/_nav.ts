@@ -21,6 +21,23 @@ export const navItems: INavData[] = [
         icon: 'icon-user'
       }
     ]
+  },
+  {
+    name: 'Roles',
+    url: '/roles',
+    icon: 'icon-wrench',
+    children: [
+      {
+        name: 'Register',
+        url: '/roles-register/register',
+        icon: 'icon-plus'
+      },
+      {
+        name: 'List',
+        url: '/roles-list/list',
+        icon: 'icon-list'
+      }
+    ]
   }
   /*{
     title: true,
