@@ -15,7 +15,7 @@ export const content: Routes = [
   },
   {
     path: 'roles-list',
-    loadChildren: () => import('../../pages/rol-list/rol-list.module').then(m => m.RolListModule)
+    loadChildren: () => import('../../Pages/roles/rol-list.module').then(m => m.RolListModule)
   },
   {
     path: 'roles-edit',

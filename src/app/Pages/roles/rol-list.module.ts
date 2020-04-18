@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RolListComponent } from './rol-list/rol-list.component';
+import { RolListComponent } from './roles/rol-list.component';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 
