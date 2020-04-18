@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-
 import { AppComponent } from './app.component';
+
+// Import for use on es-locale 'date' pipe
+import { registerLocaleData } from '@angular/common';
+import LocaleEs from '@angular/common/locales/es';
 
 // Import containers
 import { DefaultLayoutComponent } from './containers';
@@ -39,9 +41,9 @@ import {ToastrModule} from 'ngx-toastr';
 import {AuthService} from './Services/auth/auth.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InterceptorService} from './interceptors/auth.interceptor';
+import {register} from "ts-node";
 
-
-
+registerLocaleData(LocaleEs);
 
 @NgModule({
   imports: [

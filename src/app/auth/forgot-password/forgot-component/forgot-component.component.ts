@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
-import { TargetUser } from '../../../models/targetUser';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-forgot-component',
@@ -21,7 +21,7 @@ export class ForgotComponentComponent {
   ) { }
 
   forgot(form: NgForm) {
-     const targetUser: TargetUser = {
+     const targetUser: User = {
        username: btoa(form.value.username),
        email: btoa(form.value.email)
      };
@@ -32,7 +32,7 @@ export class ForgotComponentComponent {
         Swal.fire({
           icon: 'success',
           title: 'Listo',
-          text: 'Hemos enviado un correo a su Email, por favor verifiquelo',
+          text: 'Hemos enviado un correo a su Email, por favor verifíquelo',
           footer: '<a href>¿Aún no te llega el correo?</a>'
         });
       }).catch(() => {

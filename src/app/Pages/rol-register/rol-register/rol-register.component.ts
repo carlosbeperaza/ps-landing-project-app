@@ -38,6 +38,6 @@ export class RolRegisterComponent {
             this.loader.hide();
           });
       }
-      
+
     }
 }

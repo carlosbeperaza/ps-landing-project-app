@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
-import {SpinnerService} from '../../../Services/spinner/spinner.service';
-import {ToastrService} from 'ngx-toastr';
-import {AuthService} from '../../../Services/auth/auth.service';
-import {Router} from '@angular/router';
-import {HttpService} from '../../../Services/http/http.service';
+import { NgForm} from '@angular/forms';
+import { SpinnerService } from '../../../Services/spinner/spinner.service';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../../Services/auth/auth.service';
+import { Router } from '@angular/router';
+import { HttpService } from '../../../Services/http/http.service';
+import { Role } from "../../../models/role";
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,12 +15,20 @@ import Swal from 'sweetalert2';
 })
 export class RolListComponent {
 
+  roles: Array<Role>;
+
   constructor(
-    public loader: SpinnerService,
-    public toaster: ToastrService,
-    public authService: AuthService,
-    public router: Router,
-    public http: HttpService) {}
+    private loader: SpinnerService,
+    private toaster: ToastrService,
+    private authService: AuthService,
+    private router: Router,
+    private http: HttpService) {
+
+    this.http.getRoles().then((res: any) => {
+
+      this.roles = res['roles'];
+    })
+  }
 
     confirmEdit() {
       Swal.fire({
