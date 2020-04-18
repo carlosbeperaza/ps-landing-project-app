@@ -1,38 +1,109 @@
-<div class="row">
-  <button type="button" class="btn btn-primary" [routerLink]="['/roles-register/register']">Add User</button>
-</div>
 <br>
+<div class="row d-flex justify-content-between mb-2">
+  <h3>Active roles</h3>
+  <button type="button"
+          class="btn btn-dark font-weight-bold align-middle"
+          [routerLink]="['/roles-register/register']">
+    <i class="fa fa-plus"></i>
+     Add role
+  </button>
+</div>
 <div class="row">
   <table class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Creación</th>
-        <th scope="col">Ultima actualización</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Módulos</th>
-        <th scope="col">Editar</th>
-        <th scope="col">Eliminar</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Creation date</th>
+        <th scope="col">Last update</th>
+        <th scope="col">Modules</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let role of roles">
+      <tr *ngFor="let role of activeRoles">
         <th scope="row">{{ role.id }}</th>
         <td>{{ role.name }}</td>
         <td>{{ role.description }}</td>
-        <td>{{ role.createDate | date:'longDate':'-5':'es-MX' }}</td>
-        <td>{{ role.lastUpdateDate | date:'longDate':'-5':'es-MX' }}</td>
-        <td class="text-right">
-          <i class="fa fa-2x"
-             [class.fa-toggle-on]="role.status"
-             [class.fa-toggle-off]="!role.status"></i>
+        <td>{{ role.createDate | date:'longDate':'-5' }}</td>
+        <td>{{ role.lastUpdateDate | date:'longDate':'-5' }}</td>
+        <td>
+          <h5 *ngFor="let module of role.modules">
+            <span class="badge badge-secondary">{{ module.name }}</span>
+          </h5>
         </td>
-        <td>{{ 'aquí van los módulos' }}</td>
-        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" (click)="confirmEdit()"><span class="icon-pencil"></span></button></p></td>
-        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" (click)="confirmDelete()"><span class="icon-trash"></span></button></p></td>
+        <td>
+          <p data-placement="top" data-toggle="tooltip" title="Edit">
+            <button class="btn btn-primary btn-xs" data-title="Edit" (click)="confirmEdit()">
+              <span class="icon-pencil"></span>
+            </button>
+          </p>
+        </td>
+        <td>
+          <p data-placement="top" data-toggle="tooltip" title="Delete">
+            <button class="btn btn-danger btn-xs" data-title="Delete" (click)="confirmDelete()" [disabled]="!role.status">
+              <span class="icon-trash"></span>
+            </button>
+          </p>
+        </td>
       </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row d-flex justify-content-between mb-2">
+  <h3>Inactive roles</h3>
+  <button type="button"
+          class="btn btn-dark font-weight-bold"
+          (click)="showInactive = !showInactive">
+    <i class="fa"
+       [class.fa-eye]="!showInactive"
+       [class.fa-eye-slash]="showInactive"></i>
+    {{ showInactive ? ' Hide' : ' Show' }}
+  </button>
+</div>
+<div class="row">
+  <table class="table" *ngIf="showInactive">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Creation date</th>
+      <th scope="col">Last update</th>
+      <th scope="col">Modules</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let role of inactiveRoles">
+      <th scope="row">{{ role.id }}</th>
+      <td>{{ role.name }}</td>
+      <td>{{ role.description }}</td>
+      <td>{{ role.createDate | date:'longDate':'-5' }}</td>
+      <td>{{ role.lastUpdateDate | date:'longDate':'-5' }}</td>
+      <td>
+        <h5 *ngFor="let module of role.modules">
+          <span class="badge badge-secondary">{{ module.name }}</span>
+        </h5>
+      </td>
+      <td>
+        <p data-placement="top" data-toggle="tooltip" title="Edit">
+          <button class="btn btn-primary btn-xs" data-title="Edit" (click)="confirmEdit()">
+            <span class="icon-pencil"></span>
+          </button>
+        </p>
+      </td>
+      <td>
+        <p data-placement="top" data-toggle="tooltip" title="Delete">
+          <button class="btn btn-danger btn-xs" data-title="Delete" (click)="confirmDelete()" [disabled]="!role.status">
+            <span class="icon-trash"></span>
+          </button>
+        </p>
+      </td>
+    </tr>
     </tbody>
   </table>
 </div>

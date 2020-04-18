@@ -43,7 +43,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InterceptorService} from './interceptors/auth.interceptor';
 import {register} from "ts-node";
 
-registerLocaleData(LocaleEs);
+//registerLocaleData(LocaleEs);
 
 @NgModule({
   imports: [
