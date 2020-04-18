@@ -34,8 +34,7 @@ export class RegisterComponent  {
         username: form.value.username,
         status: false,
         roles: []
-
-    };
+      };
           this.http.create('user', user)
             .then((res: any) => {
               // localStorage.setItem('user', JSON.stringify(res.data));
