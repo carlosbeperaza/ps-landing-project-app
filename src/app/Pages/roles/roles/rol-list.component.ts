@@ -15,10 +15,7 @@ import Swal from 'sweetalert2';
 })
 export class RolListComponent {
 
-  private roles:  Array<Role>;
-  activeRoles:    Array<Role> = [];
-  inactiveRoles:  Array<Role> = [];
-  showInactive: boolean = false;
+  roles:  Array<Role>;
 
   constructor(
     private loader: SpinnerService,
@@ -30,10 +27,6 @@ export class RolListComponent {
     this.http.getRoles().then((res: any) => {
 
       this.roles = res['roles'];
-      this.roles.forEach(role => {
-        if(role.status) { this.activeRoles.push(role); }
-        else { this.inactiveRoles.push(role); }
-      });
     });
   }
 
