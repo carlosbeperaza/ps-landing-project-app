@@ -31,8 +31,12 @@ export class RolListComponent {
 
       this.roles = res['roles'];
       this.roles.forEach(role => {
-        if(role.status) { this.activeRoles.push(role); }
-        else { this.inactiveRoles.push(role); }
+        if (role.status) {
+          this.activeRoles.push(role);
+          /* console.log(this.activeRoles.push(role)); */
+        } else {
+          this.inactiveRoles.push(role);
+        }
       });
     });
   }

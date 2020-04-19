@@ -29,4 +29,6 @@ export class HttpService {
   resetPass = async (id: string, newPass: string, formerPass: string) => await this.http.put(`${this.URL_API}/user/password-reset/${id}/${newPass}/${formerPass}`, null).toPromise();
 
   getRoles = async () => await this.http.get(`${this.URL_API}/Role/`).toPromise();
+
+  getModule = async () => await this.http.get(`${this.URL_API}/Module/`).toPromise();
 }
