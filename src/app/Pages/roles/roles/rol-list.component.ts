@@ -22,7 +22,8 @@ export class RolListComponent {
     private toaster: ToastrService,
     private authService: AuthService,
     private router: Router,
-    private http: HttpService) {
+    private http: HttpService
+  ) {
 
     this.http.getRoles().then((res: any) => {
 
@@ -30,40 +31,50 @@ export class RolListComponent {
     });
   }
 
-    confirmEdit() {
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "is about to make a change!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Confirm'
-      }).then((result) => {
-        if (result.value) {
-          this.router.navigateByUrl('/roles-edit/edit').then(r => {});
-        }
-      })
-    }
+    toEditComponent() { this.router.navigateByUrl('/roles-edit/edit').then(r => {}); }
 
-    confirmDelete() {
+    confirmDisable(role: Role) {
+
       Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+
+        title: 'Disable role?',
+        text: 'You´r about to disable this role',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Yes'
       }).then((result) => {
         if (result.value) {
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
+
+          this.http.disableRole(role.id).then(res => {
+
+            if(res['success'] !== undefined) {
+
+              Swal.fire(
+                'Disabled!',
+                'This role has been disabled.',
+                'success'
+              ).then(r => { });
+              role.status = false;
+            } else if(res['message'] !== undefined) {
+
+              Swal.fire(
+                'Ups!',
+                res['message'],
+                'warning'
+              ).then(r => { });
+            } else if(res['error'] !== undefined) {
+
+              Swal.fire(
+                'Error!',
+                res['error'],
+                'error'
+              ).then(r => { });
+            }
+          });
         }
-      })
+      });
     }
 
 }

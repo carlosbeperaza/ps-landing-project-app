@@ -43,15 +43,15 @@
           <div class="btn-group">
             <button *ngIf="role.status"
                     class="btn btn-primary btn-xs font-weight-bold"
-                    (click)="confirmEdit()">
+                    (click)="toEditComponent()">
               <i class="fa fa-edit"></i> Edit</button>
             <button *ngIf="role.status"
                     class="btn btn-danger btn-xs font-weight-bold"
-                    (click)="confirmDelete()">
-              <i class="fa fa-times"></i> Deactivate</button>
+                    (click)="confirmDisable(role)">
+              <i class="fa fa-times"></i> Disable</button>
             <button *ngIf="!role.status"
                     class="btn btn-outline-primary btn-xs font-weight-bold">
-              <i class="fa fa-check"></i> Activate</button>
+              <i class="fa fa-check"></i> Enable</button>
           </div>
         </td>
       </tr>
