@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RolListComponent } from './roles/rol-list.component';
+import { RolesComponent } from './roles/roles.component';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 
@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: 'list',
-        component:  RolListComponent,
+        component:  RolesComponent,
         data: {
           title: 'List Users'
         },
@@ -25,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [RolListComponent],
+  declarations: [RolesComponent],
   exports: [],
   imports: [
     RouterModule.forChild(routes),
@@ -33,4 +33,4 @@ const routes: Routes = [
     FormsModule
   ]
 })
-export class RolListModule { }
+export class RolesModule { }

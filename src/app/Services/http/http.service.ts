@@ -11,8 +11,7 @@ import {User} from "../../models/user";
 export class HttpService {
   private URL_API: string = PS_ENVIRONMENT.LOCAL.URL;
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
   getAll = async (resource: string) => await this.http.get(`${this.URL_API}/${resource}`).toPromise();
 
@@ -27,9 +26,4 @@ export class HttpService {
   forgot = async (targetUser: User) => await this.http.post(`${this.URL_API}/user/forgot-password`, targetUser).toPromise();
 
   resetPass = async (id: string, newPass: string, formerPass: string) => await this.http.put(`${this.URL_API}/user/password-reset/${id}/${newPass}/${formerPass}`, null).toPromise();
-
-  getRoles = async () => await this.http.get(`${this.URL_API}/Role/`).toPromise();
-
-  getModule = async () => await this.http.get(`${this.URL_API}/Module/`).toPromise();
-  disableRole = async (id: number) => await this.http.delete(`${this.URL_API}/Role/${id}`).toPromise();
 }
