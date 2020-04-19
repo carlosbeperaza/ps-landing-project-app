@@ -31,4 +31,5 @@ export class HttpService {
   getRoles = async () => await this.http.get(`${this.URL_API}/Role/`).toPromise();
 
   getModule = async () => await this.http.get(`${this.URL_API}/Module/`).toPromise();
+  disableRole = async (id: number) => await this.http.delete(`${this.URL_API}/Role/${id}`).toPromise();
 }
