@@ -14,7 +14,7 @@ export class HttpService {
   constructor(private http: HttpClient) {
   }
 
-  getAll = async (resource: string) => await this.http.get(`${this.URL_API}/${resource}`).toPromise();
+  getAll = async () => await this.http.get(`${this.URL_API}/user/`).toPromise();
 
   getById = async (resource: string, id: any) => await this.http.get(`${this.URL_API}/${resource}/${id}`).toPromise();
 

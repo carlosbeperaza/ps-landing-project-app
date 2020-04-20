@@ -4,8 +4,8 @@ export interface Userlist {
     lastname?: string;
     email?: string;
     password?: string;
-    registration_date?: Date;
-    last_update_date?: Date;
+    registrationdate?: Date;
+    lastupdatedate?: Date;
     status?: boolean;
     username?: string;
     roles?: number[];
