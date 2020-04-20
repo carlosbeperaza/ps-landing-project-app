@@ -31,7 +31,7 @@ export class RolesComponent {
     });
   }
 
-  toEditComponent() { this.router.navigateByUrl('/roles-edit/edit').then(r => {}); }
+  toEditComponent() { this.router.navigateByUrl('/roles/edit').then(r => {}); }
 
   confirmDisable(role: Role) {
 

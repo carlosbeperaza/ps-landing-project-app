@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RolesComponent } from './roles/roles.component';
+import { RolRegisterComponent } from './rol-register/rol-register.component';
+import { RolEditComponent } from './rol-edit/rol-edit.component';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 
@@ -9,6 +11,10 @@ const routes: Routes = [
     path: '',
     children: [
       {
+        path: '',
+        redirectTo: 'list'
+      },
+      {
         path: 'list',
         component:  RolesComponent,
         data: {
@@ -16,16 +22,25 @@ const routes: Routes = [
         },
       },
       {
-        path: '',
-        redirectTo: 'roles-list/list',
-        pathMatch: 'full',
+        path: 'register',
+        component:  RolRegisterComponent,
+        data: {
+          title: 'Register'
+        },
       },
+      {
+        path: 'edit',
+        component:  RolEditComponent,
+        data: {
+          title: 'Edit User'
+        }
+      }
     ],
   },
 ];
 
 @NgModule({
-  declarations: [RolesComponent],
+  declarations: [RolesComponent, RolRegisterComponent, RolEditComponent],
   exports: [],
   imports: [
     RouterModule.forChild(routes),
