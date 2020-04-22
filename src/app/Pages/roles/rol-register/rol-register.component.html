@@ -22,8 +22,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect2">Moduls select</label>
-                                <select multiple class="form-control" id="modules" name="module">
-                                  <option>test</option>
+                                <select ngModel multiple class="form-control" id="module" name="module">
+                                  <option *ngFor="let module of modules" [value]="module.name">
+                                    {{ module.name }} - {{ module.description }}
+                                  </option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-sm btn-success" [disabled]="!rolRegisterForm.valid" (click)="rolRegister(rolRegisterForm)"><i class="fa fa-dot-circle-o"></i> Create Rol</button>
