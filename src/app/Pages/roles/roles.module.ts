@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RolesComponent } from './roles/roles.component';
 import { RolRegisterComponent } from './rol-register/rol-register.component';
 import { RolEditComponent } from './rol-edit/rol-edit.component';
-import {FormsModule} from '@angular/forms';
-import {RouterModule, Routes} from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
 
 const routes: Routes = [
   {
@@ -45,7 +46,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgMultiSelectDropDownModule
   ]
 })
 export class RolesModule { }

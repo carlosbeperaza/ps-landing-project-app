@@ -4,6 +4,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { AppComponent } from './app.component';
+import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
 
 // Import for use on es-locale 'date' pipe
 import { registerLocaleData } from '@angular/common';
@@ -64,6 +65,7 @@ import {register} from "ts-node";
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule,
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   declarations: [
     AppComponent,

@@ -6,17 +6,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from '../../../Services/http/http.service';
 import { Role } from "../../../models/Role";
 import { Module } from "../../../models/Module";
+import { IDropdownSettings } from "ng-multiselect-dropdown";
 
 @Component({
   selector: 'app-rol-edit',
   templateUrl: './rol-edit.component.html',
   styleUrls: ['./rol-edit.component.css']
 })
-export class RolEditComponent {
+export class RolEditComponent implements OnInit {
 
   private roleOriginalName: string;
   private roleOriginalDescription: string;
   private roleOriginalModuleList: Array<Module>;
+  private multiSelectSettings: IDropdownSettings;
   role: Role;
   modules: Array<Module>;
 
@@ -40,8 +42,9 @@ export class RolEditComponent {
 
     this._http.getAll('Module/').then(res => {
 
-      let roleModules: Array<Module> = [];
       this.modules = res['Success'];
+    }).finally(() => {
+      let roleModules: Array<Module> = [];
 
       this.role.modules.forEach(roleModule => {
 
@@ -58,16 +61,45 @@ export class RolEditComponent {
     });
   }
 
+  ngOnInit(): void {
+
+    this.multiSelectSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'name',
+      selectAllText: 'Select all',
+      unSelectAllText: 'Unselect all',
+      allowSearchFilter: true
+    }
+  }
+
+  // FIXME: modificaciones en el listado que resulten en el listado original debe devolver false, no true
+  isModuleListModified(): boolean {
+
+    return this.role.modules !== this.roleOriginalModuleList;
+  }
+
   test() {
 
     if(
       (this.role.name         !== this.roleOriginalName        ) ||
-      (this.role.description  !== this.roleOriginalDescription )
+      (this.role.description  !== this.roleOriginalDescription ) ||
+      this.isModuleListModified()
     ) {
 
-      console.log('enviando cambios');
+      let newModuleList: Array<Module> = [];
+
       this.role.name = (this.role.name[0].toUpperCase() + this.role.name.slice(1)).trim();
       this.role.description = (this.role.description[0].toUpperCase() + this.role.description.slice(1)).trim();
+      this.role.modules.forEach(roleModule => {
+
+        this.modules.forEach(module => {
+
+          if(roleModule.id === module.id) { newModuleList.push(module); }
+        })
+      })
+      this.role.modules = newModuleList;
+
       this._http.update('Role', this.role).then(res  => {
 
         if(res['success'] !== undefined) {

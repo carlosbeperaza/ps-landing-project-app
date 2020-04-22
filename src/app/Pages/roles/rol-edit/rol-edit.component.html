@@ -31,8 +31,23 @@
                        class="form-control"
                        autocomplete="Description">
               </div>
-              <button type="submit" class="btn btn-sm btn-success "><i class="fa fa-dot-circle-o"></i> Confirm</button>
-              <button type="reset" class="btn btn-sm btn-danger" [routerLink]="['/roles']"><i class="fa fa-ban"></i> Cancel</button>
+              <p class="mb-2">Related modules</p>
+              <div class="mb-3">
+                <ng-multiselect-dropdown [placeholder]="'Modules'"
+                                         [data]="modules"
+                                         [(ngModel)]="role.modules"
+                                         [name]="'modules'"
+                                         [settings]="multiSelectSettings"></ng-multiselect-dropdown>
+              </div>
+              <button type="submit"
+                      class="btn btn-sm btn-success ">
+                <i class="fa fa-dot-circle-o"></i> Confirm
+              </button>
+              <button [routerLink]="['/roles']"
+                      type="reset"
+                      class="btn btn-sm btn-danger">
+                <i class="fa fa-ban"></i> Cancel
+              </button>
             </form>
           </div>
         </div>
