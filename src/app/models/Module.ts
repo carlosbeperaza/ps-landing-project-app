@@ -1,3 +1,5 @@
+import {SubModule} from "./subModule";
+
 export interface Module {
   id?: number;
   name?: string;
@@ -7,5 +9,5 @@ export interface Module {
   status?: boolean;
   createDate?: Date;
   lastUpdateDate?: Date;
-  subModule: number[];
+  subModule?: Array<SubModule>;
 }

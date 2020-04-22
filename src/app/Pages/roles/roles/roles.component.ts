@@ -18,20 +18,20 @@ export class RolesComponent {
   roles:  Array<Role>;
 
   constructor(
-    private loader: SpinnerService,
-    private toaster: ToastrService,
-    private authService: AuthService,
-    private router: Router,
-    private http: HttpService
+    private _loader: SpinnerService,
+    private _toaster: ToastrService,
+    private _authService: AuthService,
+    private _router: Router,
+    private _http: HttpService
   ) {
 
-    this.http.getAll('Role/').then((res: any) => {
+    this._http.getAll('Role/').then((res: any) => {
 
       this.roles = res['roles'];
     });
   }
 
-  toEditComponent() { this.router.navigateByUrl('/roles/edit').then(r => {}); }
+  toEditComponent(id: number) { this._router.navigateByUrl(`/roles/edit/${id}`).then(r => {}); }
 
   confirmDisable(role: Role) {
 
@@ -47,30 +47,19 @@ export class RolesComponent {
     }).then((result) => {
       if (result.value) {
 
-        this.http.delete('Role', role.id).then(res => {
+        this._http.delete('Role', role.id).then(res => {
 
           if(res['success'] !== undefined) {
 
-            Swal.fire(
+            this._toaster.success(
+              'Role disabled.',
               'Disabled!',
-              'This role has been disabled.',
-              'success'
-            ).then(r => { });
+              {
+                positionClass: 'toast-top-center',
+                timeOut: 4000
+              }
+            );
             role.status = false;
-          } else if(res['message'] !== undefined) {
-
-            Swal.fire(
-              'Ups!',
-              res['message'],
-              'warning'
-            ).then(r => { });
-          } else if(res['error'] !== undefined) {
-
-            Swal.fire(
-              'Error!',
-              res['error'],
-              'error'
-            ).then(r => { });
           }
         });
       }
@@ -79,34 +68,23 @@ export class RolesComponent {
 
   enable(role: Role) {
 
-    this.http.update('Role', {
+    this._http.update('Role', {
       id: role.id,
       status: true
     }).then(res => {
 
       if(res['success'] !== undefined) {
 
-        Swal.fire(
+        this._toaster.success(
+          'Role enabled.',
           'Enabled!',
-          'This role has been enabled.',
-          'success'
-        ).then(r => { });
+          {
+            positionClass: 'toast-top-center',
+            timeOut: 4000
+          }
+        );
         role.status = true;
         role.lastUpdateDate = new Date();
-      } else if(res['message'] !== undefined) {
-
-        Swal.fire(
-          'Ups!',
-          res['message'],
-          'warning'
-        ).then(r => { });
-      } else if(res['error'] !== undefined) {
-
-        Swal.fire(
-          'Error!',
-          res['error'],
-          'error'
-        ).then(r => { });
       }
     })
   }

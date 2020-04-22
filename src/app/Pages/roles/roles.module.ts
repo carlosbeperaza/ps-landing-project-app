@@ -29,7 +29,7 @@ const routes: Routes = [
         },
       },
       {
-        path: 'edit',
+        path: 'edit/:id',
         component:  RolEditComponent,
         data: {
           title: 'Edit User'

@@ -8,7 +8,7 @@
   </button>
 </div>
 <div class="row">
-  <table class="table table-light table-hover">
+  <table class="table table-light">
     <thead class="thead-dark">
       <tr>
         <th scope="col">ID</th>
@@ -36,14 +36,15 @@
         <td>
           <h5 *ngFor="let module of role.modules">
             <span class="badge"
-                  [ngClass]="{ 'badge-dark': role.status, 'badge-secondary text-black-50': !role.status }">{{ module.name }}</span>
+                  [ngClass]="{ 'badge-dark': role.status, 'badge-secondary text-black-50': !role.status }">
+              {{ module.name }}</span>
           </h5>
         </td>
         <td>
           <div class="btn-group">
             <button *ngIf="role.status"
                     class="btn btn-primary btn-xs font-weight-bold"
-                    (click)="toEditComponent()">
+                    (click)="toEditComponent(role.id)">
               <i class="fa fa-edit"></i> Edit</button>
             <button *ngIf="role.status"
                     class="btn btn-danger btn-xs font-weight-bold"
