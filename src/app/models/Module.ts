@@ -1,4 +1,4 @@
-import {SubModule} from "./subModule";
+import {SubModule} from './subModule';
 
 export interface Module {
   id?: number;
