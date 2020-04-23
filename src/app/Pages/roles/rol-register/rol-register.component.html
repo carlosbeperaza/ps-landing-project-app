@@ -21,12 +21,14 @@
                                 <input ngModel name="description" type="text" class="form-control" placeholder="Description" autocomplete="Description" required>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect2">Moduls select</label>
-                                <select ngModel multiple class="form-control" id="module" name="module">
-                                  <option *ngFor="let module of modules" [value]="module.name">
-                                    {{ module.name }} - {{ module.description }}
-                                  </option>
-                                </select>
+                                <label for="exampleFormControlSelect2">Select modules</label>
+                                <div class="mb-3">
+                                    <ng-multiselect-dropdown [placeholder]="'Modules'"
+                                                             [data]="modules"
+                                                             [(ngModel)]="rolmodules"
+                                                             [name]="'modules'"
+                                                             [settings]="multiSelectSettings"></ng-multiselect-dropdown>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-sm btn-success" [disabled]="!rolRegisterForm.valid" (click)="rolRegister(rolRegisterForm)"><i class="fa fa-dot-circle-o"></i> Create Rol</button>
                             <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset Form</button>

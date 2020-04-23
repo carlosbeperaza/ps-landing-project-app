@@ -13,10 +13,13 @@ import { Module } from '../../../models/Module';
   selector: 'app-rol-register',
   templateUrl: './rol-register.component.html'
 })
-export class RolRegisterComponent {
+export class RolRegisterComponent implements OnInit{
 
+  multiSelectSettings: NgMultiSelectDropDownModule;
   modules:  Array<Module>;
+  rolmodules:  Array<Module>;
   
+  role: Role;
 
   constructor(
     public loader: SpinnerService,
@@ -31,18 +34,30 @@ export class RolRegisterComponent {
       });
      }
 
+     ngOnInit(): void {
+
+      this.multiSelectSettings = {
+        singleSelection: false,
+        idField: 'id',
+        textField: 'name',
+        selectAllText: 'Select all',
+        unSelectAllText: 'Unselect all',
+        allowSearchFilter: true
+      }
+    }
+
     rolRegister(form: NgForm) {
       if (form.valid) {
         this.loader.show();
         let modulosAceptados: Array<Module> = [];
 
-        for (let i = 0 ; i < form.value.module.length; i++) {
+        for (let i = 0 ; i < this.rolmodules.length; i++) {
           const Mod: Module = {
-            name: form.value.module[i]
+            name: this.rolmodules[i].name
           };
+          console.log(this.rolmodules[i].name);
           modulosAceptados.push(Mod);
-        } 
-        console.log(modulosAceptados);
+        }
 
         const Role: Role = {
           name: form.value.name,
