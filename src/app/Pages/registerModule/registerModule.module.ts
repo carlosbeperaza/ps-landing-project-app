@@ -1,9 +1,13 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './registerModule/registerModule.component';
 import {RouterModule, Routes} from '@angular/router';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {FormsModule} from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 
 const routes: Routes = [
     {
@@ -33,7 +37,8 @@ const routes: Routes = [
       RouterModule.forChild(routes),
       CommonModule,
       FormsModule,
-      NgxSpinnerModule
+      NgxSpinnerModule,
+      ReactiveFormsModule
     ]
   })
   export class RegisterModule { }

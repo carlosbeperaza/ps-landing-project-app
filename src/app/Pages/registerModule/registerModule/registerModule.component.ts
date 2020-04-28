@@ -1,19 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm, Validators} from '@angular/forms';
+import {NgForm, Validators, FormGroup, FormBuilder, FormArray, FormControl} from '@angular/forms';
 import {SpinnerService} from '../../../Services/spinner/spinner.service';
 import {ToastrService} from 'ngx-toastr';
 import {AuthService} from '../../../Services/auth/auth.service';
-import {RegisterModule} from '../../../models/RegisterModule';
+import {Module} from '../../../models/Module';
 import {Router} from '@angular/router';
 import {HttpService} from '../../../Services/http/http.service';
 import Swal from 'sweetalert2';
+import { SubModule } from '../../../models/SubModule';
 
 @Component({
     selector: 'app-register',
     templateUrl: './registerModule.component.html'
+    
   })
 
-  export class RegisterComponent  {
+  export class RegisterComponent implements OnInit {
+    
+    public ArraysubModules:SubModule[];
+    
+    registerForm:FormGroup;
+    
 
     constructor(
         public loader: SpinnerService,
@@ -21,27 +28,51 @@ import Swal from 'sweetalert2';
         public authService: AuthService,
         public router: Router,
         public http: HttpService,
+        public formBuilder: FormBuilder
       ){}
+      ngOnInit() {
+        this.registerForm = this.formBuilder.group({
 
-      register(form: NgForm) {
-
-        if (form.valid) {
-
+          name:[''],
+          description:[''],
+          url:[''],
+          icon:[''],
+          submodules:this.formBuilder.array([])
+    
+        });
+      } 
+      
+      register() {
+        
+        
+        const module:Module = Object.assign({},this.registerForm.value);
+         this.ArraysubModules = Object.assign({},this.subModules.value);
+        
+        const Module:Module ={
+          name:module.name,
+          description:module.description,
+          icon:module.icon,
+          status:false,
+          url:module.url,
+          subModules:[],
+          
+        }
+        console.log(Module);
+        
+        for (let numero in this.ArraysubModules){
+          console.log(this.ArraysubModules[numero]);
+          Module.subModules.push(this.ArraysubModules[numero]);
+        }
+          
+        
+       
+        
           this.loader.show();
 
-            const module: RegisterModule = {
-                name: form.value.Name,
-                description: form.value.Description,
-                url: form.value.Url,
-                icon: form.value.Icon,
-                status: false,
-                subModules: []
-        
-        
-              };
-              console.log(module);
             
-            this.http.create('Module', module)
+             // console.log(module);
+            
+            this.http.create('Module', Module)
             .then((res: any) => {
               
               console.log(res);
@@ -51,12 +82,43 @@ import Swal from 'sweetalert2';
                   title: 'Listo',
                   text: 'Module Registrado'
                 });
-                form.reset();
+                
               
             })
             .finally(() => {
             this.loader.hide();
           });
-        }
+        
       }
+
+     
+      get subModules(){
+        return this.registerForm.get('submodules') as FormArray
+      }
+
+      agregarSubModule(){
+        //let subModuleArr  = this.registerForm.get('submodules') as FormArray;
+        let subModuleFG = this.construirSubModule();
+        this.subModules.push(subModuleFG);
+      }
+
+      construirSubModule(){
+        return this.formBuilder.group({
+
+          name: '',
+          description: '',
+          url: '',
+          icon: '',
+          status:true,
+        });
+        
+      }
+
+      removerSubModule(indice:number){
+        this.subModules.removeAt(indice)
+      }
+    
+    
+    
+      
   }
