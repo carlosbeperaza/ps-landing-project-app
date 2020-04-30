@@ -1,0 +1,55 @@
+<div class="row d-flex justify-content-between mb-2">
+    <h3>Modules list</h3>
+    <button type="button" class="btn btn-success font-weight-bold align-middle" [routerLink]="['/registerModule/registerModule']">
+      <i class="fa fa-plus"></i>
+       Add Module
+    </button>
+</div>
+<div class="row">
+    <table class="table table-light">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Url</th>
+                <th scope="col">Icon</th>
+                <th scope="col">Is active</th>
+                <th scope="col">Creation date</th>
+                <th scope="col">Last update</th>
+                <th scope="col">SubModules</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let module of modules" [ngClass]="{ 'text-black-50': !module.status, 'table-secondary': !module.status }">
+                <th scope="row">{{ module.id }}</th>
+                <td>{{ module.name }}</td>
+                <td>{{ module.description }}</td>
+                <td>{{ module.url }}</td>
+                <td>{{ module.icon }}</td>
+                <td>
+                    <i class="fa fa-2x" [ngClass]="{ 'fa-check': module.status, 'fa-times': !module.status }"></i>
+                </td>
+                <td>{{ module.createDate | date:'longDate':'-5' }}</td>
+                <td>{{ module.lastUpdateDate | date:'longDate':'-5' }}</td>
+                <td>
+                    <h5 *ngFor="let submodule of module.subModules">
+                        <span class="badge" [ngClass]="{ 'badge-dark': module.status, 'badge-secondary text-black-50': !module.status }">
+                {{ module.name }}</span>
+                    </h5>
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <button *ngIf="module.status" class="btn btn-primary btn-xs font-weight-bold" (click)="toEditComponent(module.id)">
+                <i class="fa fa-edit"></i> Edit</button>
+                        <button *ngIf="module.status" class="btn btn-danger btn-xs font-weight-bold" (click)="confirmDisable(module)">
+                <i class="fa fa-times"></i> Disable</button>
+                        <button *ngIf="!module.status" class="btn btn-outline-primary btn-xs font-weight-bold" (click)="enable(module)">
+                <i class="fa fa-check"></i> Enable</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

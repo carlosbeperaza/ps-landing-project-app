@@ -1,0 +1,55 @@
+<div class="animated fadeIn">
+    <main class="form-group col-lg-12">
+
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                <div class="card mx-4">
+                    <div class="card-body p-4 text-c">
+                        <form *ngIf="module !== undefined" (ngSubmit)="test()">
+                            <h1 class="mb-3">Edit module</h1>
+                            <label for="name">Name</label>
+                            <div class="input-group mb-3 ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-note"></i></span>
+                                </div>
+                                <input [(ngModel)]="module.name" id="name" name="name" type="text" class="form-control" autocomplete="Name">
+                            </div>
+                            <label for="description">Description</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-speech"></i></span>
+                                </div>
+                                <input [(ngModel)]="module.description" id="description" name="description" type="text" class="form-control" autocomplete="Description">
+                            </div>
+                            <label for="url">Url</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-speech"></i></span>
+                                </div>
+                                <input [(ngModel)]="module.url" id="url" name="url" type="text" class="form-control" autocomplete="Url">
+                            </div>
+                            <label for="icon">Icon</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-speech"></i></span>
+                                </div>
+                                <input [(ngModel)]="module.icon" id="icon" name="icon" type="text" class="form-control" autocomplete="Icon">
+                            </div>
+                            <p class="mb-2">Related submodules</p>
+                            <div class="mb-3">
+
+
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-success ">
+                  <i class="fa fa-dot-circle-o"></i> Confirm
+                </button>
+                            <button [routerLink]="['/registerModule/list-module']" type="reset" class="btn btn-sm btn-danger">
+                  <i class="fa fa-ban"></i> Cancel
+                </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
