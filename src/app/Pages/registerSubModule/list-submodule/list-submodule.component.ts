@@ -5,17 +5,17 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../Services/auth/auth.service';
 import { Router } from '@angular/router';
 import { HttpService } from '../../../Services/http/http.service';
-import { Module } from "../../../models/Module";
+import { SubModule } from "../../../models/SubModule";
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-list-module',
-  templateUrl: './list-module.component.html',
-  styleUrls: ['./list-module.component.css']
+  selector: 'app-list-submodule',
+  templateUrl: './list-submodule.component.html',
+  styleUrls: ['./list-submodule.component.css']
 })
-export class ListModuleComponent {
+export class ListSubmoduleComponent {
 
-  modules:  Array<Module>;
+  submodules:  Array<SubModule>;
 
   constructor(
     private _loader: SpinnerService,
@@ -25,16 +25,16 @@ export class ListModuleComponent {
     private _http: HttpService
   ) {
 
-    this._http.getAll('Module/').then((res: any) => {
+    this._http.getAll('SubModule/').then((res: any) => {
 
-      this.modules = res['Success'];
-      console.log(this.modules);
+      this.submodules = res['Success'];
+      console.log(this.submodules);
     });
   }
 
-  toEditComponent(id: number) { this._router.navigateByUrl(`/register-module/edit/${id}`).then(r => {}); }
+  toEditComponent(id: number) { this._router.navigateByUrl(`/register-submodule/edit/${id}`).then(r => {}); }
 
-  confirmDisable(module: Module) {
+  confirmDisable(submodule: SubModule) {
     
 
     Swal.fire({
@@ -50,7 +50,7 @@ export class ListModuleComponent {
       (result) => {
       if (result.value) {
 
-        this._http.delete('Module', module.id).then(res => {
+        this._http.delete('SubModule', submodule.id).then(res => {
 
           if(res['success'] !== undefined) {
 
@@ -65,13 +65,13 @@ export class ListModuleComponent {
            
           }
         });
-        module.status = false;
+        submodule.status = false;
       }
     
     });
   }
 
-  enable(module: Module) {
+  enable(submodule: SubModule) {
     Swal.fire({
 
       title: 'Disable module?',
@@ -83,8 +83,8 @@ export class ListModuleComponent {
       confirmButtonText: 'Yes'
     }).then((result) => {
       if (result.value) {
-        this._http.update('Module', {
-          id: module.id,
+        this._http.update('SubModule', {
+          id: submodule.id,
           status: true,
         }).then(res => {
          
@@ -100,8 +100,8 @@ export class ListModuleComponent {
                 timeOut: 4000
               }
             );
-            module.status = true;
-            module.lastUpdateDate = new Date();
+            submodule.status = true;
+            submodule.lastUpdateDate = new Date();
           }
         });
 

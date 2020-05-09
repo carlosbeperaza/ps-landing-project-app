@@ -1,6 +1,6 @@
 <div class="row d-flex justify-content-between mb-2">
     <h3>Modules list</h3>
-    <button type="button" class="btn btn-success font-weight-bold align-middle" [routerLink]="['/registerModule/registerModule']">
+    <button type="button" class="btn btn-success font-weight-bold align-middle" [routerLink]="['/register-module/register-module']">
       <i class="fa fa-plus"></i>
        Add Module
     </button>
@@ -36,7 +36,7 @@
                 <td>
                     <h5 *ngFor="let submodule of module.subModules">
                         <span class="badge" [ngClass]="{ 'badge-dark': module.status, 'badge-secondary text-black-50': !module.status }">
-                {{ module.name }}</span>
+                {{ submodule.name }}</span>
                     </h5>
                 </td>
                 <td>

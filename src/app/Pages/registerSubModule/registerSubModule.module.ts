@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RegisterComponent } from './register-module/register-module.component';
+import { RegisterSubmoduleComponent } from './register-submodule/register-submodule.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { ListModuleComponent } from './list-module/list-module.component';
-import { ModuleEditComponent } from './module-edit/module-edit.component';
+import { ListSubmoduleComponent } from './list-submodule/list-submodule.component';
+import { SubmoduleEditComponent } from './submodule-edit/submodule-edit.component';
 import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -17,30 +18,30 @@ const routes: Routes = [
       children: [
         
         {
-          path: 'list-module',
-          component:  ListModuleComponent,
+          path: 'list-submodule',
+          component:  ListSubmoduleComponent,
           data: {
-            title: 'ModuleList'
+            title: 'SubModuleList'
           },
         },
         {
-          path: 'register-module',
-          component:  RegisterComponent,
+          path: 'register-submodule',
+          component:  RegisterSubmoduleComponent,
           data: {
-            title: 'Register-module'
+            title: 'RegisterSubModule'
             
           },     
         },
         {
           path: 'edit/:id',
-          component:  ModuleEditComponent,
+          component:  SubmoduleEditComponent,
           data: {
-            title: 'ModuleEdit'
+            title: 'SubmoduleEdit'
           }
         },
         {
           path: '',
-          redirectTo: 'register-module/register-module',
+          redirectTo: 'register-submodule/register-submodule',
           pathMatch: 'full',
         },
        
@@ -49,15 +50,16 @@ const routes: Routes = [
   ];
 
   @NgModule({
-    declarations: [RegisterComponent, ListModuleComponent,ModuleEditComponent, ListModuleComponent ],
+    declarations: [RegisterSubmoduleComponent, ListSubmoduleComponent,SubmoduleEditComponent],
     exports: [],
     imports: [
       RouterModule.forChild(routes),
       CommonModule,
       FormsModule,
+      NgSelectModule,
       NgxSpinnerModule,
       ReactiveFormsModule
       
     ]
   })
-  export class RegisterModule { }
+  export class RegisterSubModule { }

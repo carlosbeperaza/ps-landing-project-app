@@ -11,7 +11,7 @@ import { SubModule } from '../../../models/SubModule';
 
 @Component({
     selector: 'app-register',
-    templateUrl: './registerModule.component.html'
+    templateUrl: './register-module.component.html'
     
   })
 
@@ -43,16 +43,16 @@ import { SubModule } from '../../../models/SubModule';
       } 
       
       register() {
-        
-        
-        const module:Module = Object.assign({},this.registerForm.value);
+
+        if(this.registerForm.valid){
+          const module:Module = Object.assign({},this.registerForm.value);
          this.ArraysubModules = Object.assign({},this.subModules.value);
         
         const Module:Module ={
           name:module.name,
           description:module.description,
           icon:module.icon,
-          status:false,
+          status:true,
           url:module.url,
           subModules:[],
           
@@ -80,14 +80,29 @@ import { SubModule } from '../../../models/SubModule';
                 Swal.fire({
                   icon: 'success',
                   title: 'Listo',
-                  text: 'Module Registrado'
+                  text: 'Module Registrado',
                 });
-                
-              
+               this.registerForm.reset();
+               this.subModules.clear();
             })
             .finally(() => {
             this.loader.hide();
           });
+
+        }else{
+          this.toaster.warning(
+            "Llene todos los campos",
+            'Denied!',
+            {
+              positionClass: 'toast-top-center',
+              timeOut: 4000
+            }
+          );
+          
+        }
+        
+        
+        
         
       }
 

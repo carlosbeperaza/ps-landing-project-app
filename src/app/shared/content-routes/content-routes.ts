@@ -6,9 +6,14 @@ export const content: Routes = [
     loadChildren: () => import('../../pages/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
-    path: 'registerModule',
+    path: 'register-module',
     
     loadChildren: () => import('../../Pages/registerModule/registerModule.module').then(m => m.RegisterModule),
+  },
+  {
+    path: 'register-submodule',
+    
+    loadChildren: () => import('../../Pages/registerSubModule/registerSubModule.module').then(m => m.RegisterSubModule),
   },
   
   /*{

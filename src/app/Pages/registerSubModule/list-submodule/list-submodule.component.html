@@ -1,0 +1,51 @@
+<div class="row d-flex justify-content-between mb-2">
+    <h3>SubModules list</h3>
+    <button type="button" class="btn btn-success font-weight-bold align-middle" [routerLink]="['/register-submodule/register-submodule']">
+      <i class="fa fa-plus"></i>
+       Add SubModule
+    </button>
+</div>
+<div class="row">
+    <table class="table table-light">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Parent</th>
+                <th scope="col">Url</th>
+                <th scope="col">Icon</th>
+                <th scope="col">Is active</th>
+                <th scope="col">Creation date</th>
+                <th scope="col">Last update</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let submodule of submodules" [ngClass]="{ 'text-black-50': !submodule.status, 'table-secondary': !submodule.status }">
+                <th scope="row">{{ submodule.id }}</th>
+                <td>{{ submodule.name }}</td>
+                <td>{{ submodule.description }}</td>
+                <td>{{ submodule.parent }}</td>
+                <td>{{ submodule.url }}</td>
+                <td>{{ submodule.icon }}</td>
+                <td>
+                    <i class="fa fa-2x" [ngClass]="{ 'fa-check': submodule.status, 'fa-times': !submodule.status }"></i>
+                </td>
+                <td>{{ submodule.createDate | date:'longDate':'-5' }}</td>
+                <td>{{ submodule.lastUpdateDate | date:'longDate':'-5' }}</td>
+
+                <td>
+                    <div class="btn-group">
+                        <button *ngIf="submodule.status" class="btn btn-primary btn-xs font-weight-bold" (click)="toEditComponent(submodule.id)">
+                <i class="fa fa-edit"></i> Edit</button>
+                        <button *ngIf="submodule.status" class="btn btn-danger btn-xs font-weight-bold" (click)="confirmDisable(submodule)">
+                <i class="fa fa-times"></i> Disable</button>
+                        <button *ngIf="!submodule.status" class="btn btn-outline-primary btn-xs font-weight-bold" (click)="enable(submodule)">
+                <i class="fa fa-check"></i> Enable</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

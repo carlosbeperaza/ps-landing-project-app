@@ -13,26 +13,26 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user-following"></i></span>
                                 </div>
-                                <input formControlName="name" type="text" class="form-control" placeholder="Name" required>
+                                <input matInput formControlName="name" type="text" class="form-control" placeholder="Name" ngModel required>
 
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user-following"></i></span>
                                 </div>
-                                <input formControlName="description" type="text" class="form-control" placeholder="Description" required>
+                                <input matInput formControlName="description" type="text" class="form-control" placeholder="Description" ngModel required>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input formControlName="url" type="text" class="form-control" placeholder="Url" required>
+                                <input matInput formControlName="url" type="text" class="form-control" placeholder="Url" ngModel required>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input formControlName="icon" type="text" class="form-control" placeholder="Icon" required>
+                                <input matInput formControlName="icon" type="text" class="form-control" placeholder="Icon" ngModel required>
                             </div>
 
 
@@ -40,19 +40,18 @@
 
 
 
-                            <div class="form-group">
-                                <a class="btn btn-primary" (click)="agregarSubModule()">Agregar SubModule</a>
-                            </div>
+
 
                             <div formArrayName="submodules" *ngFor="let submodule of subModules.controls; let i=index">
                                 <div [formGroupName]="i">
+                                    <h2>New submodule</h2>
 
 
                                     <div class="input-group mb-3 ">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="icon-user-following"></i></span>
                                         </div>
-                                        <input formControlName="name" type="text" class="form-control" placeholder="Name">
+                                        <input matInput formControlName="name" type="text" class="form-control" placeholder="Name" ngModel required>
 
                                     </div>
 
@@ -60,20 +59,20 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="icon-user-following"></i></span>
                                         </div>
-                                        <input formControlName="description" type="text" class="form-control" placeholder="Description">
+                                        <input matInput formControlName="description" type="text" class="form-control" placeholder="Description" ngModel required>
                                     </div>
 
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="icon-user"></i></span>
                                         </div>
-                                        <input formControlName="url" type="text" class="form-control" placeholder="Url">
+                                        <input matInput formControlName="url" type="text" class="form-control" placeholder="Url" ngModel required>
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="icon-user"></i></span>
                                         </div>
-                                        <input formControlName="icon" type="text" class="form-control" placeholder="Icon">
+                                        <input matInput formControlName="icon" type="text" class="form-control" placeholder="Icon" ngModel required>
                                     </div>
 
                                     <div class="form-group">
@@ -86,6 +85,9 @@
                                 </div>
 
                             </div>
+                            <div class="form-group">
+                                <a class="btn btn-primary" (click)="agregarSubModule()">Agregar SubModule</a>
+                            </div>
 
 
 
@@ -96,6 +98,9 @@
                             <br>
                             <button type="submit" class="btn btn-sm btn-success " (click)="register(registerForm)"><i class="fa fa-dot-circle-o"></i> Create Account</button>
                             <button type="reset" class="btn btn-sm btn-danger "><i class="fa fa-ban"></i> Reset Form</button>
+                            <button [routerLink]="['/register-module/list-module']" type="reset" class="btn btn-sm btn-danger">
+                                <i class="fa fa-ban"></i> Cancel
+                              </button>
                         </form>
                     </div>
                 </div>

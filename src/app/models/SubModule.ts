@@ -6,6 +6,6 @@ export interface SubModule {
   url?: string;
   icon?: string;
   status?: boolean;
-  creationDate?: Date;
+  createDate?: Date;
   lastUpdateDate?: Date;
   }
