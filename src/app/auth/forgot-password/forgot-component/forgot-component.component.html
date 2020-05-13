@@ -1,0 +1,31 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form ngNativeValidate #forgotForm="ngForm">
+                <h1>Recover your Password</h1>
+                <p class="text-muted">Insert your Username and Email</p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                  <input ngModel name="username" type="text" class="form-control" placeholder="Username" autocomplete="username" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                  </div>
+                  <input ngModel name="email" type="text" class="form-control" placeholder="Email" autocomplete="email" required>
+                </div>
+                <button type="button" class="btn btn-block btn-primary" [disabled]="!forgotForm.valid" (click)="forgot(forgotForm)">Send</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

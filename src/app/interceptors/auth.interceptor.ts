@@ -21,7 +21,7 @@ export class InterceptorService implements HttpInterceptor {
     public toaster: ToastrService,
     public authService: AuthService,
     public router: Router,
-    ) {}
+  ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 

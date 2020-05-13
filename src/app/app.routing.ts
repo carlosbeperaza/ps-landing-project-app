@@ -30,7 +30,10 @@ export const routes: Routes = [
       path: 'signin',
       loadChildren: () => import('./auth/register/register.module').then(m => m.RegisterModule),
     },
-
+    {
+      path: 'recover',
+      loadChildren: () => import('./auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule),
+    },
     {
       path: 'change',
       loadChildren: () => import('./auth/new-password/new-password.module').then(m => m.NewPasswordModule),

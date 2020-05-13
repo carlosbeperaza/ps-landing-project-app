@@ -4,6 +4,7 @@ import { UserlistComponent } from './userlist/userlist.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,13 @@ const routes: Routes = [
         },     
       },
       {
+        path: 'edit/:id',
+        component:  EditUserComponent,
+        data: {
+          title: 'Edit User'
+        }
+      },
+      {
         path: '',
         redirectTo: 'userlist/userlist',
         pathMatch: 'full',
@@ -26,7 +34,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [UserlistComponent],
+  declarations: [UserlistComponent, EditUserComponent],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,

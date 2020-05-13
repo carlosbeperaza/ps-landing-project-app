@@ -3,11 +3,10 @@ import {NgForm, Validators} from '@angular/forms';
 import {SpinnerService} from '../../../Services/spinner/spinner.service';
 import {ToastrService} from 'ngx-toastr';
 import {AuthService} from '../../../Services/auth/auth.service';
-import {Register} from '../../../models/Register';
-import { TargetUser } from '../../../models/targetUser';
 import {Router} from '@angular/router';
 import {HttpService} from '../../../Services/http/http.service';
 import Swal from 'sweetalert2';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-register',
@@ -53,7 +52,7 @@ export class RegisterComponent  {
       
       this.loader.show();
 
-      const user: Register = {
+      const user: User = {
         name: form.value.firstName,
         lastname: form.value.lastName,
         email: form.value.email,
@@ -64,23 +63,39 @@ export class RegisterComponent  {
 
 
       };
-      const targetUser: TargetUser = {
+      const targetUser: User = {
         username: btoa(form.value.username),
         email: btoa(form.value.email)
       };
 
           this.http.create('user', user)
             .then((res: any) => {
+              if(res['success'] !== undefined) {
               // localStorage.setItem('user', JSON.stringify(res.data));
               // this.router.navigateByUrl('/dashboard/home');
               this.http.emailPass(targetUser).then((res: any) => {
+                if(res['success'] !== undefined) {
                 Swal.fire({
                   icon: 'success',
-                  title: 'Listo',
-                  text: 'Usuario Registrado, se le ha enviado un email'
+                  title: 'Ready',
+                  text: 'Registered User, an email has been sent to them'
                 });
                 form.reset();
+              }else{
+                Swal.fire({
+                  icon: 'warning',
+                  title: 'Denied!',
+                  text: 'The email could not be sent to the user'
+                });
+              }
               })
+            }else{
+              Swal.fire({
+                icon: 'warning',
+                title: 'Denied!',
+                text: 'The user has not registered correctly'
+              });
+            }
             })
             .finally(() => {
             this.loader.hide();

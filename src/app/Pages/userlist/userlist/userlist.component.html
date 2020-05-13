@@ -1,35 +1,54 @@
-<div class="card border-primary mb-3">
-    <div class="card-header">Users</div>
-    <div class="card-body text-primary">
-        <h5 class="card-title">User list</h5>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Email</th>
+<ngx-spinner name="global">
+    <p style="font-size: 12px; color: white">Un momento.... enviando correo al usuario</p>
+</ngx-spinner>
 
-                    <th scope="col">Registration Date</th>
-                    <th scope="col">Update Date</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Username</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let user of user">
-                    <th scope="row">{{user.id}}</th>
-                    <td>{{user.firstName}}</td>
-                    <td>{{user.lastName}}</td>
-                    <td>{{user.email}}</td>
-
-                    <td>{{user.registrationDate}}</td>
-                    <td>{{user.lastUpdateDate}}</td>
-                    <td>{{user.status}}</td>
-                    <td>{{user.username}}</td>
-                </tr>
-            </tbody>
-        </table>
-
-    </div>
+<div class="row d-flex justify-content-between mb-2">
+    <h3>Users list</h3>
+    <button type="button" class="btn btn-success font-weight-bold align-middle" [routerLink]="['/register/register']">
+      <i class="fa fa-plus"></i>
+       Add user
+    </button>
+</div>
+<div class="row">
+    <table class="table table-light table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Registration Date</th>
+                <th scope="col">Update Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Username</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users" [ngClass]="{ 'text-black-50': !user.status, 'table-secondary': !user.status }">
+                <th scope="row">{{ user.id }}</th>
+                <td>{{ user.name }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{user.email}}</td>
+                <td>{{ user.registrationDate | date:'longDate':'-5' }}</td>
+                <td>{{ user.updateDate | date:'longDate':'-5' }}</td>
+                <td>
+                    <i class="fa fa-2x" [ngClass]="{ 'fa-check': user.status, 'fa-times': !user.status }"></i>
+                </td>
+                <td>{{user.username}}</td>
+                <td>
+                    <div class="btn-group">
+                        <button *ngIf="user.status" class="btn btn-primary btn-xs font-weight-bold" (click)="toEditComponent(user.id)">
+                <i class="fa fa-edit"></i> Edit</button>
+                        <button *ngIf="user.status" class="btn btn-danger btn-xs font-weight-bold" (click)="confirmDisable(user)">
+                <i class="fa fa-times"></i> Disable</button>
+                        <button *ngIf="!user.status" class="btn btn-outline-primary btn-xs font-weight-bold" (click)="enable(user)">
+                <i class="fa fa-check"></i> Enable</button>
+                        <button *ngIf="user.status" class="btn btn-light btn-xs font-weight-bold" (click)="toChangePass(user.username,user.email)">
+                    <i class="fa fa-check"></i> Change Password</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

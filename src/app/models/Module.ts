@@ -1,10 +1,11 @@
-import {Module} from './Module';
-export interface Role {
+export interface Module {
   id?: number;
   name?: string;
   description?: string;
+  url?: string;
+  icon?: string;
   status?: boolean;
   createDate?: Date;
   lastUpdateDate?: Date;
-  modules?: Array<Module>;
+  subModule: number[];
 }

@@ -1,10 +1,11 @@
-import {Module} from './Module';
-export interface Role {
+import { SubCatalog } from "./subCatalog";
+
+export interface Catalog {
   id?: number;
   name?: string;
   description?: string;
   status?: boolean;
   createDate?: Date;
   lastUpdateDate?: Date;
-  modules?: Array<Module>;
+  subCatalogs?: Array<SubCatalog>;
 }

@@ -13,10 +13,18 @@ export const content: Routes = [
     path: 'userlist',
     loadChildren: () => import('../../pages/userlist/userlist.module').then(m => m.UserlistModule),
   },
+  {
+    path: 'roles',
+    loadChildren: () => import('../../pages/roles/roles.module').then(m => m.RolesModule)
+  },
   /*{
     path: 'base',
     loadChildren: () => import('../../views/base/base.module').then(m => m.BaseModule)
   },
+    path: 'roles',
+    loadChildren: () => import('../../pages/roles/roles.module').then(m => m.RolesModule)
+  }
+  /*
   {
     path: 'buttons',
     loadChildren: () => import('../../views/buttons/buttons.module').then(m => m.ButtonsModule)

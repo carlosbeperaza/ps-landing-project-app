@@ -41,7 +41,7 @@ export class NewPasswordComponent {
           title: 'Listo',
           text: 'Contraseña restablecida, ya puede ingresar'
         });
-        this._router.navigateByUrl('/dashboard/home').then(r => {});
+        this._router.navigateByUrl('/auth/login').then(r => {});
       });
     } else {
       /* this._toaster.warning(
