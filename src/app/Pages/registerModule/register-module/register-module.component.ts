@@ -81,10 +81,14 @@ import { SubModule } from '../../../models/SubModule';
                   icon: 'success',
                   title: 'Listo',
                   text: 'Module Registrado',
+
+                  
                 });
                this.registerForm.reset();
                this.subModules.clear();
-            })
+            
+               this.router.navigateByUrl('/register-module/list-module').then();
+              })
             .finally(() => {
             this.loader.hide();
           });

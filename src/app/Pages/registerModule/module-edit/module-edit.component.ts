@@ -74,7 +74,7 @@ export class ModuleEditComponent implements OnInit {
           });
 
 
-          this._router.navigateByUrl('/registerModule/list-module').then();
+          this._router.navigateByUrl('/register-module/list-module').then();
         }else {
 
           this._toaster.warning(

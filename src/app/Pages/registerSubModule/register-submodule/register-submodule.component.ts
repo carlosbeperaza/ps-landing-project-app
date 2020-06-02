@@ -72,7 +72,7 @@ export class RegisterSubmoduleComponent implements OnInit {
                   text: 'Module Registrado',
                 });
                 form.reset();
-                
+                this.router.navigateByUrl('/register-submodule/list-submodule').then();
             })
             .finally(() => {
             this.loader.hide();
